@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+    <style>
+
+    body {
+    background: transparent; 
+    color: #fcbe24;
+    padding: 0 24px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+    .calculatrice {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 0.50rem;
+      background-color: gray;
+      padding-block: 20px;
+      width: auto;
+    }
+
+    .buttonProp {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .bouton {
+    padding: 5px;
+    padding-block: 4px;
+    border-radius: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    justify-content: center;
+    }
+
+    .buttonSet {
+    background-color: #a57e1d;
+    padding: 5px;
+    padding-block: 2px;
+    border-radius: 1rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+
+    .input {
+     min-height: 20px;
+     padding-block: 10px;
+     background-color: rgb(189, 186, 186);
+     color: white;
+     text-align: center;
+     font-size: large;
+
+    }
+
+    .settings {
+      margin-top: 10px;
+    }
+
+    .screen {
+     width: full;
+     border-radius: 0.50rem;
+     color: white;
+    }
+
+    </style>
+  </head>
+  
+  <body>
+    <h1 id="header"></h1>
+     <div class="calculatrice">
+    
+        <div class="screen">
+            <input type="text" class="input" id="input" readonly>
+        </div>
+
+      <div class="buttonProp">
+
+
+     <div class="firstcol">
+     <button class="bouton" id="1">1</button>
+     <button class="bouton" id="2">2</button>
+     <button class="bouton" id="3">3</button>
+     </div>
+
+     <div class="secondcol">
+        <button class="bouton" id="4">4</button>
+        <button class="bouton" id="5">5</button>
+        <button class="bouton" id="6">6</button>
+     </div>
+
+     
+     <div class="thirdcol">
+     <button class="bouton" id="7">7</button>
+     <button class="bouton" id="8">8</button>
+     <button class="bouton" id="9">9</button>
+     </div>
+
+     <div class="settings">
+      <button class="buttonSet" id="AC">AC</button>
+      <button class="buttonSet" id="+">+</button>
+      <button class="buttonSet" id="-">-</button>
+      <button class="buttonSet" id="*">*</button>
+      <button class="buttonSet" id="=">=</button>
+     </div>
+    
+     </div>
+
+    </div>
+
+    <script>
+
+          [...Array(9)].forEach((_, i) => {  
+        const bouton = document.getElementById(`${i + 1}`);
+        
+        bouton.addEventListener("click", () => {
+            const Input = document.getElementById("input");
+            Input.value += `${i + 1}`;
+        });
+    });
+
+     const AC = document.getElementById("AC");
+
+     // Function to erase everything
+     AC.addEventListener('click', () => {
+     const Input = document.getElementById("input");
+      Input.value = "";
+     })
+ 
+     // Function for each operator by their ID
+    function operation() {
+
+    const Input = document.getElementById("input");
+
+    const operators = [
+     document.getElementById("-"),
+     document.getElementById("*"),
+     document.getElementById("+"),
+    // document.getElementById("/"),
+    ];
+
+    operators.forEach(btn => {
+      btn.addEventListener('click', () => {
+        input.value += ` ${btn.id} `});
+    });
+
+    }
+
+    operation();
+    
+    // Function to handle Calcul ! 
+    function handleCalcul() { // "2""+""2";
+
+    const Input = document.getElementById("input");
+    const parts =  Input.value.split(' '); // "2" "+" "2"; On sépare chaque partie dans l'input.
+    
+    console.log("Value: ", input.value);
+    console.log("parts array:", parts);
+
+    if (parts.length === 3) {
+
+    const firstNumber =  parseFloat(parts[0]); // "2"
+    const Op = parts[1]; // "+" 
+    const secondNumber = parseFloat(parts[2]);  // "2"
+
+    console.log(parts);
+
+    let result;
+
+    if (Op === '+') result = firstNumber + secondNumber; // Si la partie 2 contient l'opération +, tu fais firstNumber + secondNumber;
+    if (Op === '-') result = firstNumber - secondNumber; 
+    if (Op === '*') result = firstNumber * secondNumber;
+    if (Op === '/') result = firstNumber / secondNumber;
+
+    Input.value = result; // On affiche le resultat directement après la fonction.
+    console.log(result);
+
+    } else {
+      alert('calcul invalide');
+    }
+    // PS: On peut pas directement faire l'OP dans la console.log et afficher le result, le moyen le plus simple de stocker la valeur et dans une var.
+    // On a besoin d'enregistrer le premier nombre et le second nombre du calcul ainsi que l'operation.
+                            
+  };
+
+  const equal = document.getElementById("=")
+
+  equal.addEventListener("click",  () => {handleCalcul()});
+
+    </script>
+
+  </body>
+</html>
+
