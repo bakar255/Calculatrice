@@ -35,15 +35,15 @@ export default function Calculator() {
   return (
 
     <div className="flex min-h-screen justify-center items-center">
-      <div className=" relative rounded-lg bg-amber-50 h-67 w-55 ">
+      <div className=" relative rounded-lg  h-67 w-55  bg-[#222222] ">
           
-          <div className=" flex items-center justify-center rounded-lg mt-3 pointer-events-none h-10"> {/* Calculator div. */}
+          <div className="  flex items-center justify-center rounded-sm mt-3 pointer-events-none h-10 bg-[#474747]"> {/* Input div. */}
 
           <input 
            type="text" 
            value={Input} 
            readOnly 
-           className="w-52 h-12 text-right text-2xl p-5 rounded-lg bg-gray-800 text-white shadow-inner"
+           className=" h-12 text-2xl p-5 rounded-lg text-center text-white shadow-inner"
            />  
 
           </div>

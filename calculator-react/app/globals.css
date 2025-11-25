@@ -27,7 +27,7 @@ body {
 
 .boutonCalc {
   margin-left: 10px;
-  background-color: gray;
+  background-color: rgb(56, 56, 56);
   padding: 12px;
   padding-block: 5px;
   border-radius: 5rem;
