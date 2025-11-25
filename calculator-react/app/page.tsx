@@ -35,18 +35,19 @@ export default function Calculator() {
   return (
 
     <div className="flex min-h-screen justify-center items-center">
-      <div className=" relative rounded-lg  h-67 w-55  bg-[#222222] ">
+      <div className=" relative rounded-lg items-center h-67 w-55 bg-[#222222] ">
           
-          <div className="  flex items-center justify-center rounded-sm mt-3 pointer-events-none h-10 bg-[#474747]"> {/* Input div. */}
+          <div className=" ml-2.5 w-50 flex items-center justify-center rounded-sm mt-3 h-10 bg-[#2a2a2a]"> {/* Input div. */}
 
           <input 
            type="text" 
            value={Input} 
            readOnly 
-           className=" h-12 text-2xl p-5 rounded-lg text-center text-white shadow-inner"
+           className="h-12 text-2xl rounded-lg text-center text-white"
            />  
 
           </div>
+
            {/* Main button calc */}
           <div className="grid-cols-3 w-40 grid gap-0 mt-2">
             {[1,2,3,4,5,6,7,8,9,0].map(n => ( // Map to display number

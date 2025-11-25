@@ -38,6 +38,7 @@ body {
 
 .boutonSet {
     margin-left: 10px;
+    margin-top: 1px;
   background-color: #be7d04;
   padding: 12px;
   padding-block: 5px;
@@ -45,11 +46,4 @@ body {
   cursor: pointer;
   width: 45px;
   height: 45px;
-}
-
-.firstcol {
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-
 }
