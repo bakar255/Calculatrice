@@ -1,7 +1,7 @@
 ## Calculator
 
 
-A calculator project I built from scratch using both vanilla JavaScript and the Next.js React framework.
+A calculator project I built from scratch with two version. the first one in vanilla JavaScript and the second one in Next.js React framework. It help to understand in depth DOM, Parse with Array, State management and tailwind.
 
 ## What i learned
 
